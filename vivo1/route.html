@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="template/css/base.css">
+    <link rel="stylesheet" href="template/css/index.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <script src="angular-1.5.6.js"></script>
+    <script src="angular-route.js"></script>
+    <script>
+
+        window.onload=window.onresize=function (){
+            document.documentElement.style.fontSize=document.documentElement.clientWidth/16+'px';
+        };
+
+        var app=angular.module('app',['ngRoute']);
+
+        app.config(function($routeProvider){
+            $routeProvider.when('/index',{
+                templateUrl:'template/index.html',
+                controller:'indexCon'
+            }).otherwise({
+                redirectTo:'/index'
+
+            });
+        });
+
+        app.controller('indexCon',['$scope',function($scope){
+            $scope.a='template/images/a2.png',
+            $scope.data=[{
+                image:'template/images/a3.png',
+                phone:'手机'
+            }]
+            
+            
+        }]);
+
+
+    </script>
+</head>
+<body>
+<div ng-view></div>
+<div class="box13 wraper">
+    <ul>
+        <li>
+            <a href="javascript:;"><img src="template/images/a25.png" alt=""></a>
+            <p><a href="#/index">精选</a></p>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="template/images/a26.png" alt=""></a>
+            <p><a href="javascript:;">精选</a></p>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="template/images/a27.png" alt=""></a>
+            <p><a href="javascript:;">精选</a></p>
+        </li>
+        <li>
+            <a href="javascript:;"><img src="template/images/a28.png" alt=""></a>
+            <p><a href="javascript:;">精选</a></p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
